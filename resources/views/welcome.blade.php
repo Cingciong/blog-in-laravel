@@ -10,7 +10,7 @@
     <aside class="col-span-2  self-start flex justify-center sticky top-0   pt-12">
         <nav class=" w-3/4 gap-5 grid grid-rows-10">
             <div class="ml-7  w-1/4">
-                <img class="w-3/4" src="img/twitter.png">
+                <img class="w-[50px]" src="img/twitter.png">
                 </img0>
             </div>
             <x-nav_button imgSrc="img/home.svg">Home</x-nav_button>
@@ -87,26 +87,7 @@
 
             </x-post>
         </section>
-        <section>
-            <x-post images="{!! $images !!}" userTag="{{ '@'.'LA' }}" postContent="{{$postContent}}" userName="LA newsletter" userImage="https://picsum.photos/50/50" timeSincePostCreation="3m" >
 
-            </x-post>
-        </section>
-        <section>
-            <x-post images="{!! $images !!}" userTag="{{ '@'.'LA' }}" postContent="{{$postContent}}" userName="LA newsletter" userImage="https://picsum.photos/50/50" timeSincePostCreation="3m" >
-
-            </x-post>
-        </section>
-        <section>
-            <x-post images="{!! $images !!}" userTag="{{ '@'.'LA' }}" postContent="{{$postContent}}" userName="LA newsletter" userImage="https://picsum.photos/50/50" timeSincePostCreation="3m" >
-
-            </x-post>
-        </section>
-        <section>
-            <x-post images="{!! $images !!}" userTag="{{ '@'.'LA' }}" postContent="{{$postContent}}" userName="LA newsletter" userImage="https://picsum.photos/50/50" timeSincePostCreation="3m" >
-
-            </x-post>
-        </section>
 
     </main>
     <div class="col-span-3">

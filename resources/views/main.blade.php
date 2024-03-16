@@ -70,22 +70,15 @@
         </section>
 
         <?php
-            $postContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor";
-//            $images = [
-//                'https://picsum.photos/200/300?grayscale',
-//                'https://picsum.photos/300/300?grayscale',
-//                'https://picsum.photos/500/300?grayscale',
-//                'https://picsum.photos/400/400?grayscale',
-//            ];
-//            $images = json_encode($images);
-        $images = NULL;
+
         ?>
         <section>
-            <x-post images="{!! $images !!}" userTag="{{ '@'.'LA' }}" postContent="{{$postContent}}" userName="LA newsletter" userImage="https://picsum.photos/50/50" timeSincePostCreation="3m" >
+            @foreach($posts as $post)
+                <x-post images="{!! $post->images !!}" userTag="{{ '@'.$post->user->tag }}" postContent="{{$post->postContent}}" userName="{{$post->user->name}}" userImage="{{$post->user->userImage}}" timeSincePostCreation="{{$post->created_at->diffForHumans()}}" >
+                </x-post>
+            @endforeach
+        </section>
 
-            </x-post>
         </section>
 
 

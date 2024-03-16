@@ -1,4 +1,4 @@
-@props(['imgSrc' => 'img/default.svg'])
+@props(['imgSrc' => ''])
 
 <button {{ $attributes->merge(['class' => 'w-full  rounded-full px-6 duration-300 hover:bg-gray-100 hover:shadow-2xl']) }}>
     <div class="grid grid-cols-5 ">

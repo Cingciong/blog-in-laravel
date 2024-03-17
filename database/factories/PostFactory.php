@@ -25,10 +25,10 @@ class PostFactory extends Factory
     {
         $images = [];
         if(rand(1,10) == 5 or rand(1,10) == 6 or rand(1,10) == 7) {
-            $images = ['https://picsum.photos/200/300'];
+            $images = ['https://picsum.photos/800/600'];
         }
         if (rand(1,10) == 8 or rand(1,10) == 9) {
-            $images = ['https://picsum.photos/200/300', 'https://picsum.photos/200/300'];
+            $images = ['https://picsum.photos/1000/600', 'https://picsum.photos/1200/700'];
         }
 
         $userID = rand(1, 100);

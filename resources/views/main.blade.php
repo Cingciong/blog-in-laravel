@@ -1,11 +1,18 @@
-<!doctype html>
-<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
 </head>
-<body  class="h-auto">
+<body>
+<!-- Your HTML code -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/owl.carousel.js"></script>
+
+</body>
 <div class="bg-gray-50-100 grid grid-cols-10 ">
     <aside class="col-span-2  self-start flex justify-center sticky top-0   pt-12">
         <nav class=" w-3/4 gap-5 grid grid-rows-10">
@@ -74,7 +81,7 @@
         ?>
         <section>
             @foreach($posts as $post)
-                <x-post images="{!! $post->images !!}" userTag="{{ '@'.$post->user->tag }}" postContent="{{$post->postContent}}" userName="{{$post->user->name}}" userImage="{{$post->user->userImage}}" timeSincePostCreation="{{$post->created_at->diffForHumans()}}" >
+                <x-post images="{!! $post->images !!}" userTag="{{ $post->user->tag }}" postContent="{{$post->postContent}}" userName="{{$post->user->name}}" userImage="{{$post->user->userImage}}" timeSincePostCreation="{{$post->created_at->diffForHumans()}}" >
                 </x-post>
             @endforeach
         </section>
@@ -88,4 +95,6 @@
     </div>
 </div>
 </body>
+
+
 </html>

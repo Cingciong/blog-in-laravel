@@ -1,10 +1,7 @@
 @props(['images'=>NULL, 'userTag'=>' ','postContent' => '', 'userName' => '', 'userImage' => '', 'timeSincePostCreation' => ''])
 
-
-
-
 <div>
-    <div class="grid grid-cols-10  pb-2 border--solid border-gray-100 border-b-[3px]">
+    <div class="grid grid-cols-10 h-auto pb-2 border--solid border-gray-100 border-b-[3px]">
         <a href="\" class="p-[12px]  ">
             <img class="rounded-full " src={{$userImage}}>
         </a>
@@ -20,16 +17,28 @@
             </div>
 
             @if($images !== '')
-                <div>
-                    @php
-                        $images = json_decode($images, true);
-                    @endphp
-                    @foreach ($images as $image)
-                        <img src="{{ $image }}" alt="Image">
+                @php
+                    $images = json_decode($images, true);
+                @endphp
+                <div class="owl-carousel">
+                    @foreach($images as $image)
+                        <div class="item h-auto rounded-2xl overflow-hidden">
+                            <img src="{{ $image }}" alt="Image" class=" w-full h-max-96 rounded-2xl object-contain my-3 border-solid border-2 border-gray-400">
+                        </div>
                     @endforeach
                 </div>
+                <script>
+                    $(document).ready(function(){
+                        $('.owl-carousel').owlCarousel({
+                            loop:false,
+                            margin:3,
+                            nav:true,
+                            items: 1,
+                            navText: ['<img class=" bg-gray-200 rounded-full duration-300 opacity-50 hover:opacity-100 w-9 rotate-90" src="' + "{{ asset('img/arrow-down.svg') }}" + '">', '<img class=" ml-2 bg-gray-200 rounded-full duration-300 opacity-50 hover:opacity-100 w-9 rotate-270" src="' + "{{ asset('img/arrow-down.svg') }}" + '">']
+                        });
+                    });
+                </script>
             @endif
-
             <div class="text-gray-900 pr-14 pb-3">
                 <p>{{ $postContent }}</p>
             </div>

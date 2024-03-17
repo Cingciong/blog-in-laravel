@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('password');
             $table->string('tag')->unique();
             $table->string('userImage')->nullable();
+            $table->string('backGroundImage')->nullable();
+            $table->string('bio')->nullable();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

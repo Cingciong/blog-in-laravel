@@ -22,8 +22,8 @@
                 @endphp
                 <div class="owl-carousel">
                     @foreach($images as $image)
-                        <div class="item h-auto rounded-2xl overflow-hidden">
-                            <img src="{{ $image }}" alt="Image" class=" w-full h-max-96 rounded-2xl object-contain my-3 border-solid border-2 border-gray-400">
+                        <div class="item h-auto h-max-48 rounded-2xl overflow-hidden">
+                            <img src="{{ $image }}" alt="Image" class=" w-full h-max-48 rounded-2xl object-contain my-3 border-solid border-2 border-gray-400">
                         </div>
                     @endforeach
                 </div>

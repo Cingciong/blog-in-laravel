@@ -22,6 +22,9 @@ class User extends Authenticatable
         'tag',
         'password',
         'userImage',
+        'backGroundImage',
+        'bio',
+
     ];
 
     /**

@@ -41,6 +41,8 @@ class PostFactory extends Factory
             'userTag' => $user->tag,
             'postContent' => $this->faker->paragraph,
             'userName' => $user->name,
+            'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
+            'updated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
     }
 }

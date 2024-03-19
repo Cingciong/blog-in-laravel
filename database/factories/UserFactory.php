@@ -27,9 +27,12 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'userImage' => 'https://picsum.photos/50/50',
             'tag' => '@'.$this->faker->unique()->userName,
+            'backGroundImage' => 'https://picsum.photos/1000/280',
+            'bio'=> $this->faker->paragraph,
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+
         ];
     }
 }

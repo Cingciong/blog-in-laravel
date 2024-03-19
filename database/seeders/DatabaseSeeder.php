@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Follows;
 use Database\Factories\CommentFactory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
@@ -17,13 +18,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->truncateTables(['users', 'posts', 'comments']);
+     $this->truncateTables(['users', 'posts', 'comments','follows']);
+
         Artisan::call('migrate:rollback');
         Artisan::call('migrate');
 
 
 
+
         User::factory(100)->create();
+        Follows::factory(500)->create();
         Post::factory(200)->create();
         Comment::factory(500)->create();
     }

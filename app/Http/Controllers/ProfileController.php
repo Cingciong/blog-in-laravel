@@ -10,9 +10,13 @@ class ProfileController extends Controller
 
     public function show(Request $request, $slug)
     {
+        $user = User::where('tag', $slug)->firstOrFail(); // replace $slug with the tag of the user
+        $followsCount = $user->follows()->count();
+        $followersCount = $user->followers()->count();
 
-        $user = User::where('tag', $slug)->firstOrFail();
-        return view('profile', ['user' => $user]);
+
+
+        return view('profile', compact('user', 'followsCount', 'followersCount'));
     }
 
 

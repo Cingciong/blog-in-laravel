@@ -22,9 +22,16 @@ class FollowsFactory extends Factory
      */
     public function definition()
     {
+        $follower_id = rand(1, 100);
+        $followed_id = rand(1, 100);
+        while(1) {
+            $followed_id = rand(1, 100);
+            if($follower_id != $followed_id)
+                break;
+        }
         return [
-            'follower_id' => rand(1, 100),
-            'followed_id' => rand(1, 100),
+            'follower_id' => $follower_id,
+            'followed_id' => $followed_id,
         ];
     }
 }

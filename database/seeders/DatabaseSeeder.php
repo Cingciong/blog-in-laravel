@@ -18,18 +18,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-     $this->truncateTables(['users', 'posts', 'comments','follows']);
-
-        Artisan::call('migrate:rollback');
-        Artisan::call('migrate');
+   $this->truncateTables(['users', 'posts', 'comments','follows']);
 
 
 
-
-        User::factory(100)->create();
-        Follows::factory(500)->create();
-        Post::factory(200)->create();
-        Comment::factory(500)->create();
+        $this->measureExecutionTime(function () {
+            User::factory(100)->create();
+            echo "  users created";
+        });
+        $this->measureExecutionTime(function () {
+            Follows::factory(3000)->create();
+            echo "  follows created";
+        });
+        $this->measureExecutionTime(function () {
+            Post::factory(200)->create();
+            echo "  posts created";
+        });
+        $this->measureExecutionTime(function () {
+            Comment::factory(500)->create();
+            echo "  comments created";
+        });
     }
 
     /**
@@ -37,6 +45,18 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+    protected function measureExecutionTime(callable $function)
+    {
+        $this->start_time = microtime(true);
+        $function();
+        $end_time = microtime(true);
+        $execution_time = ($end_time - $this->start_time);
+        $execution_time= substr((string)$execution_time, 0, 7);
+        echo ' '.$execution_time*1000 . "ms \n" ;
+    }
+
+
     protected function truncateTables(array $tables)
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
